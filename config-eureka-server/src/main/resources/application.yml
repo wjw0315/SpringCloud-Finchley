@@ -7,12 +7,12 @@ spring:
     config:
       server:
         git:
-          uri: http://static.geer2.com:30104/Wu/geer2-config-file.git
+          uri: https://github.com/wjw0315/cloud-config-demo
           search-paths: repo
           clone-on-start: true
-#          username:
-#          password:
-#      default-label: feature/wjw
+#          username:  # git用户名
+#          password:  # git密码
+        default-label: feature/wjw  # 默认分支
 
 
 #Spring Cloud 服务注册
