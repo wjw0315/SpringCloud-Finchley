@@ -1,0 +1,74 @@
+spring:
+  application:
+    name: config-client
+  ## 解决springboot2.1.x后@FeignClient相同名字报错问题
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+  cloud:
+    config:
+      fail-fast: true
+      discovery:
+        ## 是否从配置中心读取文件
+        enabled: true
+        ## 配置中心的server Id，即服务名
+        serviceId: wjwcloud-config-eureka-server
+      profile: ${spring.profiles.active}
+      ## 分支
+      label: feature/wjw
+      #configserver安全配置
+      username: admin
+      password: admin
+      ## 重试机制
+      retry:
+        ### 配置重试次数，默认为6
+        max-attempts: 6
+        ### 间隔乘数，默认1.1，如第一次间隔为1000ms，则第二次间隔为1100ms
+        multiplier: 1
+        ### 初始重试间隔时间，默认1000ms
+        initial-interval: 1000
+        ### 最大间隔时间，默认2000ms
+        max-interval: 2000
+
+
+---
+spring:
+  profiles: dev
+#服务注册
+eureka:
+  instance:
+    prefer-ip-address: true
+    #服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除
+    #注意，EurekaServer一定要设置eureka.server.eviction-interval-timer-in-ms否则这个配置无效，这个配置一般为服务刷新时间配置的三倍
+    #默认90s
+    lease-expiration-duration-in-seconds: 30
+    #服务刷新时间配置，每隔这个时间会主动心跳一次
+    #默认30s
+    lease-renewal-interval-in-seconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 10
+
+
+---
+spring:
+  profiles: prod
+#服务注册
+eureka:
+  instance:
+    prefer-ip-address: true
+    #服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除
+    #注意，EurekaServer一定要设置eureka.server.eviction-interval-timer-in-ms否则这个配置无效，这个配置一般为服务刷新时间配置的三倍
+    #默认90s
+    lease-expiration-duration-in-seconds: 30
+    #服务刷新时间配置，每隔这个时间会主动心跳一次
+    #默认30s
+    lease-renewal-interval-in-seconds: 10
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 10
+
+

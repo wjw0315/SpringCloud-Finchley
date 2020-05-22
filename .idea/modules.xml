@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringCloud-Finchley.iml" filepath="$PROJECT_DIR$/.idea/SpringCloud-Finchley.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-clinet/config-clinet.iml" filepath="$PROJECT_DIR$/config-clinet/config-clinet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-registry-server/eureka-registry-server.iml" filepath="$PROJECT_DIR$/eureka-registry-server/eureka-registry-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-eureka-server/geer2-config-server.iml" filepath="$PROJECT_DIR$/config-eureka-server/geer2-config-server.iml" />
+    </modules>
+  </component>
+</project>
